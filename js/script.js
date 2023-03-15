@@ -1,5 +1,6 @@
 window.onload = init;
 
+
 //window.location.href -> info sull'indirizzo attuale del sito e server
 var indirizzo = window.location.href + "server/";
 
@@ -25,4 +26,10 @@ function init(){
             div.appendChild(domanda);
         }
     });
+
+    document.getElementById("btnControlla").addEventListener("click", controlla);
+}
+
+function controlla(){
+
 }
