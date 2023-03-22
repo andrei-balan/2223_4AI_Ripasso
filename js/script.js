@@ -35,9 +35,15 @@ document.getElementById("btnControlla").addEventListener("click", controlla);
 
 function controlla()
 {
-    if(document.querySelectorAll("input:checked").length == domande.length)
+    let risposte = document.querySelectorAll("input:checked");
+    if(risposte.length == domande.length)
     {
-        
+        let contErrate = 0;
+        for(let risposta of risposte){
+            if(!domande[risposta.name].risp[risposta.value].corretta)
+            contErrate++;
+        }
+        alert("hai sbagliato "+contErrate+ " risposte")
     }
     else{
         alert("Attenzione non hai selezionato una risposta per ogni domanda")
