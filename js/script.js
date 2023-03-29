@@ -1,6 +1,7 @@
 window.onload = init;
 
 var domande = [];
+let risultati = [];
 //let indirizzo = "https://localhost/4a/Ripasso/"
 let indirizzo = window.location.href + "server/";
 
@@ -35,6 +36,7 @@ document.getElementById("btnControlla").addEventListener("click", controlla);
 
 function controlla()
 {
+    risultati = [];
     let risposte = document.querySelectorAll("input:checked");
     if(risposte.length == domande.length)
     {
@@ -42,11 +44,26 @@ function controlla()
         for(let risposta of risposte){
             if(!domande[risposta.name].risp[risposta.value].corretta)
             contErrate++;
+            risultati.push({nDomanda : risposta.name,
+                            nRisposta: risposta.value});
         }
-        alert("hai sbagliato "+contErrate+ " risposte")
+        
+        alert("hai sbagliato "+contErrate+ " risposte");
     }
     else{
-        alert("Attenzione non hai selezionato una risposta per ogni domanda")
+        alert("Attenzione non hai selezionato una risposta per ogni domanda");
     }
+    console.log(risultati)
+    console.log(JSON.stringify(risultati))
+    //creo il download 
+    let a = document.createElement("a");
+    a.setAttribute("download","risultati.json");
+    let data = "data:json/plain;charset=utf-8," + risultati;
+
+    a.setAttribute("href",  data);
+
+    a.click();
+
 }
+
 
