@@ -1,3 +1,31 @@
 body{
     background-color: rgb(255, 254, 195);
 }
+header{
+    background-color:azure;
+    width: 100%;
+    text-align: center;
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+div > div{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+
+
+
+}
+main{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
