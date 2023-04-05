@@ -15,5 +15,5 @@ $risp = new stdClass();
 $risp->cod = 0;
 $risp->desc = "Salvataggio dei dati su file avvenuti con successo";
 
-return json_encode($risp);
+echo json_encode($risp);
 ?>

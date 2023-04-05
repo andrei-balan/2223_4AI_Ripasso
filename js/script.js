@@ -76,6 +76,13 @@ function controlla()
     a.href = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(risultati));
 
     a.click();
+    //Contatto il server e mando le risposte
+    let promise = fetch(indirizzo+"risposte.php",{method:'POST',body: JSON.stringify(risultati)});
+    promise.then(async function(risp){
+      let json =await risp.json();
+      alert(json.desc);
+    });
+
 
 }
 function premuto(evento)
@@ -99,7 +106,7 @@ function rilasciato(evento)//aggiornato
     let filtro = evento.target.value;
 
     inserisciDomande(filtro);
-    
+
 
    
 }
