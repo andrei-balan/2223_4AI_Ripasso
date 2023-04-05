@@ -99,6 +99,7 @@ function rilasciato(evento)//aggiornato
     let filtro = evento.target.value;
 
     inserisciDomande(filtro);
+    
 
    
 }
